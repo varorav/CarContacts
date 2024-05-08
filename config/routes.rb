@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'logins/index'
-  post 'logins/create_new'
-  match 'logins/:id/create', to: 'logins#create', via: [:get, :post]
-  match 'logins/read', to: 'logins#read', via: [:get, :post]
   post 'cars/create'
   get 'cars/read'
   get 'cars/update'
   get 'cars/delete'
-  post 'contacts/create'
+  get 'contacts/create'
   get 'contacts/:id/read', to: 'contacts#read'
   get 'contacts/update'
   get 'contacts/delete'
