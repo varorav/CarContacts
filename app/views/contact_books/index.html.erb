@@ -7,7 +7,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @contactbook.each do |pair| %>
+  <% @temp.each do |pair| %>
     <tr>
       <td>
         <%= link_to(pair.first, {controller: 'contacts', action: 'read', id: pair.first}) %>
