@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_08_224911) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_08_230245) do
   create_table "cars", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -20,12 +20,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_224911) do
     t.string "year"
     t.string "trim"
     t.string "color"
+    t.integer "contact_id", null: false
+    t.index ["contact_id"], name: "index_cars_on_contact_id"
   end
 
   create_table "contact_books", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.integer "contacts_id"
+    t.index ["contacts_id"], name: "index_contact_books_on_contacts_id"
     t.index ["user_id"], name: "index_contact_books_on_user_id"
   end
 
@@ -37,6 +41,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_224911) do
     t.string "instagram"
     t.string "address"
     t.string "note"
+    t.integer "contact_book_id", null: false
+    t.integer "cars_id", null: false
+    t.index ["cars_id"], name: "index_contacts_on_cars_id"
+    t.index ["contact_book_id"], name: "index_contacts_on_contact_book_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,5 +59,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_224911) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "contacts"
+  add_foreign_key "contact_books", "contacts", column: "contacts_id"
   add_foreign_key "contact_books", "users"
+  add_foreign_key "contacts", "cars", column: "cars_id"
+  add_foreign_key "contacts", "contact_books"
 end

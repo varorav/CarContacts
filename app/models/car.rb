@@ -1,4 +1,6 @@
 class Car < ApplicationRecord
+  belongs_to :contact
+
   validates :chassis, presence: true
   validates :make, presence: true
   validates :model, presence: true
