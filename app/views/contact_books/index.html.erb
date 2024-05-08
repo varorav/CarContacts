@@ -1,0 +1,22 @@
+<h1>Car Contacts - <%= @name %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Contact</th>
+    <th>Current Car</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @contactbook.each do |pair| %>
+    <tr>
+      <td>
+        <%= link_to(pair.first, {controller: 'contacts', action: 'read', id: pair.first}) %>
+      </td>
+      <td><%= pair.last %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to('Add New Contact', "contacts/create") %>

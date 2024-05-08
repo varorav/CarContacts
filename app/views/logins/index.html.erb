@@ -1,0 +1,11 @@
+<h1>Welcome to Car Contacts</h1>
+
+<%= form_tag('logins/read', method: :post) do %>
+  <%= text_field_tag :name, nil, placeholder: 'Enter your name' %>
+  <%= submit_tag 'Sign In', name: 'signin' %>
+<% end %>
+
+<%= form_tag('logins/create_new', method: :post) do %>
+  <%= text_field_tag :name, nil, placeholder: 'Enter your name' %>
+  <%= submit_tag 'Sign Up', name: 'signup' %>
+<% end %>
