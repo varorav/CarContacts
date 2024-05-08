@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'logins/index'
   post 'logins/create_new'
   match 'logins/:id/create', to: 'logins#create', via: [:get, :post]

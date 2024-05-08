@@ -1,5 +1,4 @@
 <h1>Car Contacts - <%= @name %></h1>
-
 <table>
   <thead>
   <tr>
@@ -20,3 +19,8 @@
 </table>
 
 <%= link_to('Add New Contact', "contacts/create") %>
+<br />
+<br />
+<% if user_signed_in? %>
+  <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+<% end %>
