@@ -3,7 +3,7 @@
     Name
     <%= form.text_field(:name) %>
   </div>
-  <div class="field">
+  <div class="field" id='phone_number'>
     Phone Number
     <%= form.text_field(:phone_number) %>
   </div>
@@ -19,6 +19,24 @@
     Notes
     <%= form.text_area :note, rows: 4 %>
   </div>
+
+  <%= form.fields_for :cars do |car_fields| %>
+    <%= car_fields.label :make %>
+    <%= car_fields.text_field :make %>
+
+    <%= car_fields.label :model %>
+    <%= car_fields.text_field :model %>
+
+    <%= car_fields.label :year %>
+    <%= car_fields.text_field :year %>
+
+    <%= car_fields.label :trim %>
+    <%= car_fields.text_field :trim %>
+
+    <%= car_fields.label :color %>
+    <%= car_fields.text_field :color %>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

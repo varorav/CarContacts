@@ -10,7 +10,7 @@ class ContactBooksController < ApplicationController
       @names_to_ids[contact.name] = contact.id
       contact_cars = []
       if contact.cars.present?
-        contact_cars = contact.cars.map {|car| [car.name]}
+        contact_cars = contact.cars.map {|car| [car.make]}
       end
      @names_and_cars.push([contact.name, contact_cars])
     end
