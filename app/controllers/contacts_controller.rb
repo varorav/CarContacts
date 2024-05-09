@@ -20,6 +20,10 @@ class ContactsController < ApplicationController
   end
 
   def read
+    @contact = Contact.where(id: params[:id], contact_book_id: current_user.contact_book.id).take
+    unless @contact.present?
+      render :missing_contact
+    end
   end
 
   def update
