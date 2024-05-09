@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'logins/index'
   get 'contacts/new_contact'
+  get 'contacts/:id/read', to: 'contacts#read'
   get 'contact_books/:id/index', to: 'contact_books#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

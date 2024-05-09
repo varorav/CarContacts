@@ -1,5 +1,5 @@
 <h1>Car Contacts - <%= @name %></h1>
-<% if @temp.any? %>
+<% if @names_and_cars.any? %>
 <table>
   <thead>
   <tr>
@@ -8,10 +8,10 @@
   </tr>
   </thead>
   <tbody>
-  <% @temp.each do |pair| %>
+  <% @names_and_cars.each do |pair| %>
     <tr>
       <td>
-        <%= link_to(pair.first, {controller: 'contacts', action: 'read', id: pair.first}) %>
+        <%= link_to(pair.first, {controller: 'contacts', action: 'read', id: @names_to_ids[pair.first]}) %>
       </td>
       <td><%= pair.last %></td>
     </tr>
@@ -19,7 +19,8 @@
   </tbody>
 </table>
 <% end %>
-
+<br />
+<br />
 <%= link_to('Add New Contact', contacts_new_contact_path) %>
 <br />
 <br />
