@@ -1,0 +1,25 @@
+<%= form_with(model: @contact, url: contacts_path, local: true) do |form| %>
+  <div class="field">
+    Name
+    <%= form.text_field(:name) %>
+  </div>
+  <div class="field">
+    Phone Number
+    <%= form.text_field(:phone_number) %>
+  </div>
+  <div class="field">
+    Instagram
+    <%= form.text_field(:instagram) %>
+  </div>
+  <div class="field">
+    Address
+    <%= form.text_field(:address) %>
+  </div>
+  <div class="field">
+    Notes
+    <%= form.text_area :note, rows: 4 %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

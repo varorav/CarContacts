@@ -3,6 +3,6 @@ class ContactBooksController < ApplicationController
   def index
     @name = current_user.email
     @contactbook = current_user.contact_book || ContactBook.create_for_user(current_user)
-    @temp = [["hello", "porsche"], ["hello2", "bmw"]]
+    @temp = []
   end
 end

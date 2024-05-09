@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'logins/index'
-  post 'cars/create'
-  get 'cars/read'
-  get 'cars/update'
-  get 'cars/delete'
-  get 'contacts/create'
-  get 'contacts/:id/read', to: 'contacts#read'
-  get 'contacts/update'
-  get 'contacts/delete'
+  get 'contacts/new_contact'
   get 'contact_books/:id/index', to: 'contact_books#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -17,4 +10,6 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root 'logins#index'
+
+  resources :contacts, only: [:new, :create]
 end

@@ -1,4 +1,5 @@
 <h1>Car Contacts - <%= @name %></h1>
+<% if @temp.any? %>
 <table>
   <thead>
   <tr>
@@ -17,8 +18,9 @@
   <% end %>
   </tbody>
 </table>
+<% end %>
 
-<%= link_to('Add New Contact', contacts_create_path) %>
+<%= link_to('Add New Contact', contacts_new_contact_path) %>
 <br />
 <br />
 <% if user_signed_in? %>
