@@ -3,3 +3,10 @@
 <p>Phone Number: <%= @contact.phone_number %> </p>
 <p>Address: <%= @contact.address %> </p>
 <p>Notes: <%= @contact.note %> </p>
+
+<% if @contact.cars.present? %>
+  <h2> Cars </h2>
+  <% @contact.cars.each do |car| %>
+    <p> <%= car.make %>  </p>
+  <% end %>
+<% end %>
